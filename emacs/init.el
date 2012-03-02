@@ -9,7 +9,7 @@
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
 (require 'workgroups)
-(setq wg-prefix-key (kbd "C-w"))
+(setq wg-prefix-key (kbd "C-1"))
 (workgroups-mode 1)
 
 (defun clojure-slime-maybe-compile-and-load-file ()
@@ -19,5 +19,11 @@ Meant to be used in `after-save-hook'."
   (when (and (eq major-mode 'clojure-mode) (slime-connected-p))
     (slime-compile-and-load-file)))
 
+(setq kill-region (kbd "C-w"))
 
 (add-hook 'after-save-hook 'clojure-slime-maybe-compile-and-load-file)
+
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-flex-matching t) ;; enable fuzzy matching
+
