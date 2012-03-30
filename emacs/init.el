@@ -27,3 +27,12 @@ Meant to be used in `after-save-hook'."
 (ido-mode t)
 (setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
+(autoload 'paredit-mode "paredit"   
+  "Minor mode for pseudo-structurally editing Lisp code."   
+  t)   
+;(add-hook 'lisp-mode-hook (lambda () (paredit-mode +1)))   
+(mapc (lambda (mode)   
+      (let ((hook (intern (concat (symbol-name mode)   
+                   "-mode-hook"))))   
+      (add-hook hook (lambda () (paredit-mode +1)))))   
+    '(emacs-lisp lisp inferior-lisp slime slime-repl))  
