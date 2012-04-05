@@ -13,9 +13,7 @@
 (workgroups-mode 1)
 
 (defun clojure-slime-maybe-compile-and-load-file ()
-  "Call function `slime-compile-and-load-file' if current buffer is connected to a swank server.                                                               
-
-Meant to be used in `after-save-hook'."
+  "Call function `slime-compile-and-load-file' if current buffer is connected to a swank server.Meant to be used in `after-save-hook'."
   (when (and (eq major-mode 'clojure-mode) (slime-connected-p))
     (slime-compile-and-load-file)))
 
@@ -25,7 +23,7 @@ Meant to be used in `after-save-hook'."
 
 (require 'ido)
 (ido-mode t)
-(setq ido-enable-flex-matching t) ;; enable fuzzy matching
+;;(setq ido-enable-flex-matching t) ;; enable fuzzy matching
 
 (autoload 'paredit-mode "paredit"   
   "Minor mode for pseudo-structurally editing Lisp code."   
@@ -35,4 +33,20 @@ Meant to be used in `after-save-hook'."
       (let ((hook (intern (concat (symbol-name mode)   
                    "-mode-hook"))))   
       (add-hook hook (lambda () (paredit-mode +1)))))   
-    '(emacs-lisp lisp inferior-lisp slime slime-repl))  
+    '(emacs-lisp lisp inferior-lisp slime slime-repl)) 
+
+; stop the message "Fontifying *SLIME Compilation*"
+(setq font-lock-verbose nil)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(tool-bar-mode nil))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
