@@ -51,3 +51,7 @@
  )
 
 (add-to-list 'default-frame-alist '(alpha 90 90))
+
+(add-to-list 'load-path "/opt/local/share/doc/git-core/contrib/emacs")
+(require 'git)
+(require 'git-blame)
