@@ -8,6 +8,8 @@
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
+(setq visible-bell t)
+
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-1"))
 (workgroups-mode 1)
