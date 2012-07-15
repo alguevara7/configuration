@@ -54,11 +54,11 @@
 
 (add-to-list 'default-frame-alist '(alpha 90 90))
 
-(add-to-list 'load-path "/opt/local/share/doc/git-core/contrib/emacs")
+(add-to-list 'load-path "~/.emacs.d/git")
 (require 'git)
 (require 'git-blame)
 
-(add-to-list 'load-path "~/Codigo/nav/emacs-nav-49")
+(add-to-list 'load-path "~/emacs.d/emacs-nav-49")
 (require 'nav)
 (nav-disable-overeager-window-splitting)
 ;; Optional: set up a quick key to toggle nav
