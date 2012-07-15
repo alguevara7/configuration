@@ -40,16 +40,16 @@
 ; stop the message "Fontifying *SLIME Compilation*"
 (setq font-lock-verbose nil)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(tool-bar-mode nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (add-to-list 'default-frame-alist '(alpha 90 90))
@@ -57,3 +57,9 @@
 (add-to-list 'load-path "/opt/local/share/doc/git-core/contrib/emacs")
 (require 'git)
 (require 'git-blame)
+
+(add-to-list 'load-path "~/Codigo/nav/emacs-nav-49")
+(require 'nav)
+(nav-disable-overeager-window-splitting)
+;; Optional: set up a quick key to toggle nav
+;; (global-set-key [f8] 'nav-toggle)
