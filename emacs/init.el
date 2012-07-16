@@ -63,3 +63,10 @@
 (nav-disable-overeager-window-splitting)
 ;; Optional: set up a quick key to toggle nav
 ;; (global-set-key [f8] 'nav-toggle)
+
+(defun select-nav-window ()
+  "Switch to the Nav window"
+  (interactive)
+  (select-window (get-buffer-window "*nav*")))
+
+(global-set-key (kbd "C-c C-n") 'select-nav-window)
