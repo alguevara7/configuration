@@ -70,3 +70,10 @@
   (select-window (get-buffer-window "*nav*")))
 
 (global-set-key (kbd "C-c C-n") 'select-nav-window)
+
+(defun select-previous-window ()
+  "Switch to the previous window" 
+  (interactive)
+  (select-window (previous-window)))
+
+(global-set-key (kbd "C-x p")  'select-previous-window)
