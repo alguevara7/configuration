@@ -8,18 +8,17 @@
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
-(setq visible-bell t)
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
-(require 'workgroups)
-(setq wg-prefix-key (kbd "C-1"))
-(workgroups-mode 1)
+(setq visible-bell t)
 
 (defun clojure-slime-maybe-compile-and-load-file ()
   "Call function `slime-compile-and-load-file' if current buffer is connected to a swank server.Meant to be used in `after-save-hook'."
   (when (and (eq major-mode 'clojure-mode) (slime-connected-p))
-    (slime-compile-and-load-file)))
+    (when (string-match "\.clj$" buffer-file-name)
+      (slime-compile-and-load-file))))
 
-(setq kill-region (kbd "C-w"))
+;;(setq kill-region (kbd "C-w"))
 
 (add-hook 'after-save-hook 'clojure-slime-maybe-compile-and-load-file)
 
